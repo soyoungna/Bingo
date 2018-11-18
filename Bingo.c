@@ -5,19 +5,21 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
     void initiate_bingo();
-	void print_bingo();
+	void print_bingo(int bingo_array[N][N]);
 	void get_number_byMe(int bingo_array,int number);
 	void get_number_byCom(int bingo_array,int number);
 	void process_bingo(int count[N][N],int num);
 	void count_bingo(int bingo_array[N][N]);
-	int bingo_array[N][N];
+
+	int number;
 	int num1,num2;
 	int userbingo[N][N];
 	int combingo[N][N];
 	int result=0;
 int main(int argc, char *argv[]) {
 	
-	int user,com;
+	int user = 0;
+	int com = 0;
 	
 	printf("---------Game start---------");
 	printf("\n");
@@ -31,18 +33,18 @@ int main(int argc, char *argv[]) {
     initiate_bingo(combingo); 
     print_bingo(combingo);
      
-  do{
+  while(1){
   
-  get_numberbyMe(userbingo,num1);
-	process_bingo(userbingo,num1);
-	process_bingo(combingo,num2);
+    get_numberbyMe(userbingo,num1); // 내가 번호 선택 
+	process_bingo(userbingo,num1); // 나의 빙고판 숫자 0으로 만들기 
+	process_bingo(combingo,num2); //컴퓨터 빙고판 0으로 만들기 
 	
-	get_numberbyCom(combingo,num2);
-	process_bingo(userbingo,num1);
-	process_bingo(combingo,num2);
+	get_numberbyCom(combingo,num2); //컴퓨터 번호 선택 
+	process_bingo(userbingo,num1); //나의 빙고판 숫자 0으로 만들기 
+	process_bingo(combingo,num2); //컴퓨터 빙고판 0으로 만들기
 	
-	count_bingo(userbingo);
-	count_bingo(combingo);
+	count_bingo(userbingo); // 나의 빙고판 빙고 줄 맞추기  
+	count_bingo(combingo); // 컴퓨터 빙고판 빙고줄 맞추기 
 	
 	print_bingo(userbingo);
     
@@ -50,9 +52,22 @@ int main(int argc, char *argv[]) {
     
     print_bingo(combingo);
     
-    
-    
-}while(result=0);
+    if(result = M){
+    	break;
+	}
+}
+
+if(count_bingo(userbingo)=M){
+	
+printf("축하합니다 승리!!");
+
+};
+
+else(count_bingo(combingo)=M){
+	
+	printf("유감입니다ㅠ패배ㅠ");
+};
+
 
 	return 0;
 }
@@ -80,11 +95,11 @@ void initiate_bingo() //난수 이용해서 빙고판 만들기
 	 
 	}
 
-void print_bingo()//빙고판 출력하기
+void print_bingo(int bingo_array[N][N])//빙고판 출력하기
  
 {
 	int x,y;
-    int bingo_array[N][N];
+
 	for(x=0;x<N;x++){
 		for(y=0;y<N;y++){
 			
@@ -94,7 +109,7 @@ void print_bingo()//빙고판 출력하기
 	}
 	
 }
-void get_numberbyMe(int bingo_array,int number){
+void get_numberbyMe(int bingo_array[N][N],int number){
 
 
 	int check=0;
@@ -116,7 +131,7 @@ void get_numberbyMe(int bingo_array,int number){
 	
 }
 
-void get_numberbyCom(int bingo_array,int number){
+void get_numberbyCom(int bingo_array[N][N],int number){
 
 	number = rand() % N*N+1;
 	printf("컴퓨터는 %d 을 선택하였습니다.",number);
@@ -124,16 +139,16 @@ void get_numberbyCom(int bingo_array,int number){
 	
 	return 0;
 }
-void process_bingo(int bingo[N][N],int num){
+void process_bingo(int bingo_array[N][N],int num){
 	
 	int x,y;
 	
 	for(x=0;x<N;x++){
 		for(y=0;y<N;y++){
 			
-			if(bingo[x][y]==num){
+			if(bingo_array[x][y]==num){
 				
-				bingo[x][y]=-1;
+				bingo_array[x][y]=0;
 				
 			}
 		}
@@ -156,9 +171,9 @@ void count_bingo(int bingo_array[N][N]){
 			
 	       sum+=bingo_array[x][y];
 		}
-		if(sum==-5){
+		if(sum==0){
 		
-			result =1;
+			result ++;
 		}
 	}
 	
@@ -167,15 +182,15 @@ void count_bingo(int bingo_array[N][N]){
 			
 			sum+=bingo_array[x][y];
 		}
-		if(sum==-5){
-			result=1;
+		if(sum==0){
+			result ++;
 		}
 	}
 	for(x=0;x<N;x++){
 		sum+=bingo_array[x][x];
-		if(sum==-5){
+		if(sum==0){
 		
-	 result=1;
+	 result ++;
 	   }
 	}
 	
@@ -183,13 +198,13 @@ void count_bingo(int bingo_array[N][N]){
 		
 		sum+=bingo_array[x][N-x+1];
 		
-	   if(sum==-5){
+	   if(sum==0){
 
-	     result=1;
+	     result ++;
         }
 	}
-	return 0;
-
+	
+	return result;
 }
 	
 	
