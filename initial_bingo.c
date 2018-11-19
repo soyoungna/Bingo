@@ -1,15 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "initial_bingo.h"
-#include "print_bingo.h"
+#include <time.h>
 #define N 5
 #define M 3
-
 int initiate_bingo(int bingo_num[N*N]) //난수 이용해서 빙고판 만들기  
 { 
-   
-	
-	int i;
+   	int i;
 	int temp;
 	int rannum;
 	
@@ -25,6 +21,5 @@ int initiate_bingo(int bingo_num[N*N]) //난수 이용해서 빙고판 만들기
 		bingo_num[rannum] = temp;
 		
 	}
-		
-	 
-	}
+	
+		}

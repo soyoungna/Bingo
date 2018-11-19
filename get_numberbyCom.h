@@ -4,6 +4,8 @@
 #include "print_bingo.h"
 #include "get_numberbyMe.h"
 #include "get_numberbyCom.h"
+#include "process_bingo.h"
+#include "count_bingo.h"
 #define N 5
-
-int get_numberbyCom(int bingo_array[N][N],int num2);
+#define M 3 
+int get_numberbyCom(int bingo_array[N][N]);
