@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#define N 5
-#define M 3
+#include "function.h"
+
 int initiate_bingo(int bingo_num[N*N]) //난수 이용해서 빙고판 만들기  
 { 
    	int i;

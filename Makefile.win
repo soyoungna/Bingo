@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = Bingo.o initial_bingo.o print_bingo.o get_numberbyMe.o get_numberbyCom.o process_bingo.o count_bingo.o
-LINKOBJ  = Bingo.o initial_bingo.o print_bingo.o get_numberbyMe.o get_numberbyCom.o process_bingo.o count_bingo.o
+OBJ      = main.o initial_bingo.o print_bingo.o get_numberbyMe.o get_numberbyCom.o process_bingo.o count_bingo.o
+LINKOBJ  = main.o initial_bingo.o print_bingo.o get_numberbyMe.o get_numberbyCom.o process_bingo.o count_bingo.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -24,8 +24,8 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-Bingo.o: Bingo.c
-	$(CC) -c Bingo.c -o Bingo.o $(CFLAGS)
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
 
 initial_bingo.o: initial_bingo.c
 	$(CC) -c initial_bingo.c -o initial_bingo.o $(CFLAGS)

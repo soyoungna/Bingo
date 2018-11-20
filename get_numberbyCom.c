@@ -1,13 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#define N 5
-#define M 3
-int get_numberbyCom(int bingo_array[N][N])
+#include "function.h"
+
+
+int get_numberbyCom(int bingo_array[N][N])//컴퓨터가 선택하는 숫자는 난수를 이용해서 1~25사이의 수를 하나 선택하게 한다. 
 {
 	int num;
 	int x,y;
 	num = rand() % N*N+1;
+	
 while(1)
 {	
    if(num>=1 && num<=N*N)
@@ -16,12 +15,10 @@ while(1)
 			{
 				for(y=0;y<N;y++)
 				{
-					if(bingo_array[x][y]==num)
-					{
-						bingo_array[x][y];
-					}
+					bingo_array[x][y]==num;
 				}
-			}break;
+			}
+			break;
 
 		 }
 	}
