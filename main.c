@@ -56,8 +56,7 @@ int main(void)
          break;
 	} 
 	
-	
-}	
+   }	
 	
 	printf("½ÃµµÈ½¼ö : %d ",turn);
 
