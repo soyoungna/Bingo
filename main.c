@@ -30,15 +30,14 @@ int main(void)
 	process_bingo(userbingo); //나의 빙고판 숫자 0으로 만들기 
 	process_bingo(combingo); //컴퓨터 빙고판 0으로 만들기
 	
-	mresult = count_bingo(userbingo,mresult);
-    cresult = count_bingo(combingo,cresult);
+	mresult = count_bingo(userbingo,mresult);//나의 빙고판 0의 갯수 세기 
+    cresult = count_bingo(combingo,cresult);//컴퓨터 빙고판 0의 갯수 세기 
 	
-    printf("사용자 빙고\n");
-	print_bingo(userbingo);
+    printf("사용자 빙고\n");  
+	print_bingo(userbingo);//다시 나의 빙고판 프린트 
      
-		turn ++;
-		
-	if(mresult>=M && cresult<=M)
+		turn ++; //시도횟수가 증가한다 
+	if(mresult>=M && cresult<=M) 
 	{
 		printf("축하합니다! 승리하셨습니다!^^");
 	 	break;
